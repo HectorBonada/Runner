@@ -294,12 +294,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688ff90c248d04b4c991725eb85d8b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  jumpForce: 2
+  moveSpeed: 0
+  jumpForce: 4
   grounded: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  force: 1
 --- !u!50 &1813276837
 Rigidbody2D:
   serializedVersion: 4
@@ -317,8 +318,8 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1813276838
 BoxCollider2D:
