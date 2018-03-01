@@ -28,7 +28,8 @@ public class LevelManager : MonoBehaviour
         blackScreen.color = Color.black;
         FadeIn();
 
-        if(SceneManager.sceneCount >= 2) SceneManager.SetActiveScene(SceneManager.GetSceneAt(1));
+        if (SceneManager.sceneCount >= 2) SceneManager.SetActiveScene(SceneManager.GetSceneAt(1));
+        else if (SceneManager.sceneCount == 1) StartLoad(1);
 
         UpdateSceneState();
     }
@@ -58,6 +59,13 @@ public class LevelManager : MonoBehaviour
     }
 
     public void LoadNext() { StartLoad(nextScene); }
+    public void LoadBack() { StartLoad(backScene); }
+    public void LoadMenu() { StartLoad(titleScene); }
+    public void LoadGamePlay() { StartLoad(3); }
+    public void ExitGame()
+    {
+        FadeOutExit();
+    }
 
     void StartLoad(int index)
     {
