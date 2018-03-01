@@ -85,6 +85,11 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(fadeTime);
         LoadLevel();
     }
+    IEnumerator WaitForExit()
+    {
+        yield return new WaitForSecondsRealtime(fadeTime);
+        QuitGame();
+    }
     IEnumerator Loading()
     {
         while(true)
@@ -115,5 +120,18 @@ public class LevelManager : MonoBehaviour
     {
         blackScreen.CrossFadeAlpha(1, fadeTime, true);
         StartCoroutine(WaitForFade());
+    }
+
+    void QuitGame()
+    {
+        Debug.Log("ExitGame");
+        Application.Quit();
+        return;
+    }
+    void FadeOutExit()
+    {
+        blackScreen.CrossFadeAlpha(1, fadeTime, true);
+        Debug.Log("ToExit");
+        StartCoroutine(WaitForExit());
     }
 }
