@@ -39,14 +39,12 @@ public class PlayerBehaviour : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
         }
-        if(grounded == false)
+        if(!grounded)
         {
+            if (Input.GetMouseButtonDown(2) || Input.GetKey(KeyCode.Space))
             {
-                if(Input.GetMouseButtonDown(2) || Input.GetKey(KeyCode.Space))
-                {
-                    force = 0.25f;
-                    rb.gravityScale = force;
-                }
+                force = 0.25f;
+                rb.gravityScale = force;
             }
         }
     }
