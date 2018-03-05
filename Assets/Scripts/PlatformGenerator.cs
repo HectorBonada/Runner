@@ -10,9 +10,10 @@ public class PlatformGenerator : MonoBehaviour {
 
     private float platformWidth;
 
-    private float distBetweenMin;
-    private float distBetweenMax;
+    public float distBetweenMin;
+    public float distBetweenMax;
 
+    public ObjectPooling theObjectPool;
     // Use this for initialization
     void Start ()
     {
@@ -28,7 +29,12 @@ public class PlatformGenerator : MonoBehaviour {
 
             transform.position = new Vector3(transform.position.x + platformWidth + distBetweenPlat, transform.position.y, transform.position.z);
 
-            Instantiate(platform, transform.position, transform.rotation);
+            //Instantiate(platform, transform.position, transform.rotation);
+            GameObject newPlatform = theObjectPool.GetPooledObject();
+
+            newPlatform.transform.position = transform.position;
+            newPlatform.transform.rotation = transform.rotation;
+            newPlatform.SetActive(true);
         }
 	}
 }
