@@ -14,10 +14,10 @@ public class PlatformGenerator : MonoBehaviour {
     public float distBetweenMax;
 
     private int platformOption;
-    public GameObject[] platforms;
+    //public GameObject[] platforms;
     private float[] platformsWidth;
-
-    //public ObjectPooling theObjectPool;
+    
+    public ObjectPooling[] theObjectPools;
     
         
     // Use this for initialization
@@ -25,10 +25,10 @@ public class PlatformGenerator : MonoBehaviour {
     {
         platformWidth = platform.GetComponent<BoxCollider2D>().size.x;
 
-        platformsWidth = new float[platforms.Length];
-        for (int i = 0; i < platforms.Length; i++) 
+        platformsWidth = new float[theObjectPools.Length];
+        for (int i = 0; i < theObjectPools.Length; i++) 
         {
-            platformsWidth[i] = platforms[i].GetComponent<BoxCollider2D>().size.x;
+            platformsWidth[i] = theObjectPools[i].pooledObject.GetComponent<BoxCollider2D>().size.x;
         }
 	}
 	
@@ -39,18 +39,21 @@ public class PlatformGenerator : MonoBehaviour {
         {
             distBetweenPlat = Random.Range(distBetweenMin, distBetweenMax);
 
-            platformOption = Random.Range(0, platforms.Length);
+            platformOption = Random.Range(0, theObjectPools.Length);
 
-            transform.position = new Vector3(transform.position.x + platformsWidth[platformOption] + distBetweenPlat, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + (platformsWidth[platformOption] /2) + distBetweenPlat, transform.position.y, transform.position.z);
 
-            Instantiate(/*platform*/ platforms[platformOption], transform.position, transform.rotation);
+            //Instantiate(/*platform*/ theObjectPools[platformOption], transform.position, transform.rotation);
 
 
-            /*GameObject newPlatform = theObjectPool.GetPooledObject();
+            GameObject newPlatform = theObjectPools[platformOption].GetPooledObject();
 
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
-            newPlatform.SetActive(true);*/
+            newPlatform.SetActive(true);
+
+
+            transform.position = new Vector3(transform.position.x + (platformsWidth[platformOption] / 2), transform.position.y, transform.position.z);
         }
-	}
+    }
 }
