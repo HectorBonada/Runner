@@ -6,6 +6,10 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
+
+    public float jumpTime;
+    private float jumpTimeCounter;
+
     private Rigidbody2D rb;
 
     public bool grounded;
@@ -20,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         rb.gravityScale = force;
+        jumpTimeCounter = jumpTime;
     }
 
     // Update is called once per frame
@@ -36,16 +41,27 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if(grounded)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+               
             }
         }
-        if(!grounded)
+
+        if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         {
-            if (Input.GetMouseButtonDown(2) || Input.GetKey(KeyCode.Space))
+            if (jumpTimeCounter > 0)
             {
-                force = 0.25f;
-                rb.gravityScale = force;
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumpTimeCounter -= Time.deltaTime;
             }
+        }
+       
+        if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        {
+            jumpTimeCounter = 0;
+        }
+
+        if (grounded)
+        {
+            jumpTimeCounter = jumpTime;
         }
     }
 }
