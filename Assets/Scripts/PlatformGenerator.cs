@@ -13,11 +13,23 @@ public class PlatformGenerator : MonoBehaviour {
     public float distBetweenMin;
     public float distBetweenMax;
 
-    public ObjectPooling theObjectPool;
+    private int platformOption;
+    public GameObject[] platforms;
+    private float[] platformsWidth;
+
+    //public ObjectPooling theObjectPool;
+    
+        
     // Use this for initialization
     void Start ()
     {
         platformWidth = platform.GetComponent<BoxCollider2D>().size.x;
+
+        platformsWidth = new float[platforms.Length];
+        for (int i = 0; i < platforms.Length; i++) 
+        {
+            platformsWidth[i] = platforms[i].GetComponent<BoxCollider2D>().size.x;
+        }
 	}
 	
 	// Update is called once per frame
@@ -27,14 +39,18 @@ public class PlatformGenerator : MonoBehaviour {
         {
             distBetweenPlat = Random.Range(distBetweenMin, distBetweenMax);
 
-            transform.position = new Vector3(transform.position.x + platformWidth + distBetweenPlat, transform.position.y, transform.position.z);
+            platformOption = Random.Range(0, platforms.Length);
 
-            //Instantiate(platform, transform.position, transform.rotation);
-            GameObject newPlatform = theObjectPool.GetPooledObject();
+            transform.position = new Vector3(transform.position.x + platformsWidth[platformOption] + distBetweenPlat, transform.position.y, transform.position.z);
+
+            Instantiate(/*platform*/ platforms[platformOption], transform.position, transform.rotation);
+
+
+            /*GameObject newPlatform = theObjectPool.GetPooledObject();
 
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
-            newPlatform.SetActive(true);
+            newPlatform.SetActive(true);*/
         }
 	}
 }
