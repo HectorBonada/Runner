@@ -621,6 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   jumpForce: 4
+  jumpTime: 0.5
   grounded: 0
   whatIsGround:
     serializedVersion: 2
@@ -721,8 +722,8 @@ MonoBehaviour:
   - {fileID: 1647438873}
   - {fileID: 138690210}
   - {fileID: 901907506}
-  maxHeightPoint: {fileID: 0}
-  maxHeightChange: 0
+  maxHeightPoint: {fileID: 2134079551}
+  maxHeightChange: 0.3
 --- !u!1 &2134079550
 GameObject:
   m_ObjectHideFlags: 0
