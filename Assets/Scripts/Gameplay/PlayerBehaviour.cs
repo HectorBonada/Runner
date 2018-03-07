@@ -13,6 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
     private float moveSpeedStore;
     public float speedIncreaseMilestoneStore;
     public float jumpForce;
+    public bool die = false;
 
     public float jumpTime;
     private float jumpTimeCounter;
@@ -30,6 +31,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public GameManager GameManager;
 
+    public GameObject canvasEnd;
+
     // Use this for initialization
     void Start()
     {
@@ -46,47 +49,58 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Suelo.
-        //grounded = Physics2D.IsTouchingLayers(col, whatIsGround);
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
-        //Mecánica moverse
-
-        if(transform.position.x >= speedMilestoneCount)
+        if(die == false)
         {
-            speedMilestoneCount += speedIncreaseMilestone;
+            //Suelo.
+            //grounded = Physics2D.IsTouchingLayers(col, whatIsGround);
+            grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
-            speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
-            moveSpeed = moveSpeed * speedMultiplier;
-        }
+            //Mecánica moverse
 
-        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+            if(transform.position.x >= speedMilestoneCount)
+            {
+                speedMilestoneCount += speedIncreaseMilestone;
 
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-        {
+                speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
+                moveSpeed = moveSpeed * speedMultiplier;
+            }
+
+            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            {
+                if(grounded)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                }
+            }
+
+            if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+            {
+                if(jumpTimeCounter > 0)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                    jumpTimeCounter -= Time.deltaTime;
+                }
+            }
+
+            if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+            {
+                jumpTimeCounter = 0;
+            }
+
             if(grounded)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumpTimeCounter = jumpTime;
             }
         }
-
-        if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+        if (die == true)
         {
-            if (jumpTimeCounter > 0)
+            if(Input.GetKeyDown(KeyCode.R))
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jumpTimeCounter -= Time.deltaTime;
+                GameManager.RestartGame();
+                die = false;
             }
-        }
-       
-        if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
-        {
-            jumpTimeCounter = 0;
-        }
-
-        if (grounded)
-        {
-            jumpTimeCounter = jumpTime;
         }
     }
 
@@ -94,10 +108,20 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "KillBox")
         {
-            GameManager.RestartGame();
+            StartCoroutine("YouDie");
+            die = true;
+            //canvasEnd.SetActive(true);
+            //GameManager.RestartGame();
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
         }
     }
+
+    public IEnumerator YouDie()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canvasEnd.SetActive(true);
+    }
+
 }
