@@ -15,16 +15,18 @@ public class TitleAnimation : MonoBehaviour
     public float duration;
     float alpha;
     public Image logo;
+    public GameObject managerScene;
     public LevelManager lvlMng;
     //public AudioSource logoSound;
-    bool startMusic = false;
+    //bool startMusic = false;
 
     public void Start()
     {
         transform.localScale = new Vector3(iniPos.x, iniPos.y, transform.localScale.z);
         alpha = 0;
+        managerScene = GameObject.FindWithTag("Manager");
+        lvlMng = managerScene.GetComponent<LevelManager>();
     }
-
     // Update is called once per frame
     void Update ()
     {
