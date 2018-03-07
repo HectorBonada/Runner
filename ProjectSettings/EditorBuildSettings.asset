@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Manager.unity
     guid: e5d266dfd92ad0e468a81552ddeab5c3
   - enabled: 1
+    path: Assets/Scenes/LogoScreen.unity
+    guid: 00125dba3f95f0b4b9281ce52cf94c79
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 51202ab6438f13c4bb70a2a8ea831f89
   - enabled: 1
