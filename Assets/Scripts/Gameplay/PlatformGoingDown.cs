@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformGoingDown : MonoBehaviour {
 
     public Rigidbody2D rb;
-
+    
 	// Use this for initialization
 	void Start () {
 		
@@ -20,6 +20,10 @@ public class PlatformGoingDown : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             rb.isKinematic = false;
+        }
+        else if(other.gameObject.tag == "KillBox")
+        {
+            this.gameObject.SetActive(false);
         }
     }
 }

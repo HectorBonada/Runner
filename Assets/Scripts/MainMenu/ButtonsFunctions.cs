@@ -12,6 +12,7 @@ public class ButtonsFunctions : MonoBehaviour
     private void Start()
     {
         managerScene = GameObject.FindWithTag("Manager");
+
         script = managerScene.GetComponent<LevelManager>();
     }
 

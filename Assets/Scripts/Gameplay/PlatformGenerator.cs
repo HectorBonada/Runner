@@ -26,6 +26,10 @@ public class PlatformGenerator : MonoBehaviour {
 
     private float heightChange;
 
+    private CoinGenerator coinGenerator;
+    public float randomCoinThreshold;
+
+
     // Use this for initialization
     void Start ()
     {
@@ -40,6 +44,7 @@ public class PlatformGenerator : MonoBehaviour {
         minHeight = transform.position.y;
         maxHeight = maxHeightPoint.position.y;
 
+        coinGenerator = FindObjectOfType<CoinGenerator>();
 	}
 	
 	// Update is called once per frame
@@ -73,6 +78,10 @@ public class PlatformGenerator : MonoBehaviour {
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
 
+            if(Random.Range(0f, 10f) < randomCoinThreshold)
+            {
+                coinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z));
+            }
 
             transform.position = new Vector3(transform.position.x + (platformsWidth[platformOption] / 2), transform.position.y, transform.position.z);
         }
