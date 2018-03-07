@@ -14,8 +14,16 @@ public class GameManager : MonoBehaviour {
 
     private ScoreManager theScore;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject textDie;
+    public GameObject canvasGame;
+    public GameObject canvasEnd;
+
+    public bool playerDie;
+    public bool pause;
+    public GameObject textPause;
+
+    // Use this for initialization
+    void Start () {
         platformStartPoint = platformGenerator.position;
         playerStartPoint = player.transform.position;
 
@@ -29,22 +37,66 @@ public class GameManager : MonoBehaviour {
     public void RestartGame()
     {
         StartCoroutine("RestartGameCo");
+        textDie.SetActive(false);
+        canvasGame.SetActive(true);
+        canvasEnd.SetActive(false);
+
+        platformList = FindObjectsOfType<PlatformDestroyer>();
+        for (int i = 0; i < platformList.Length; i++)
+        {
+            platformList[i].gameObject.SetActive(false);
+        }
+        platformGenerator.position = platformStartPoint;
+        player.transform.position = playerStartPoint;
     }
     public IEnumerator RestartGameCo()
     {
         theScore.scoreIncreasing = false;
         player.gameObject.SetActive(false);
-        yield return new WaitForSeconds(1f);
-        platformList = FindObjectsOfType<PlatformDestroyer>();
+        Time.timeScale = 1;
+        /*platformList = FindObjectsOfType<PlatformDestroyer>();
         for(int i = 0; i < platformList.Length; i++)
         {
             platformList[i].gameObject.SetActive(false);
         }
-        player.transform.position = playerStartPoint;
-        platformGenerator.position = platformStartPoint;
+        platformGenerator.position = platformStartPoint;*/
+        yield return new WaitForSecondsRealtime(1f);
+        playerDie = false;
         player.gameObject.SetActive(true);
-
         theScore.scoreCount = 0;
         theScore.scoreIncreasing = true;
+    }
+
+    public void PlayerDie()
+    {
+        textDie.SetActive(true);
+        Time.timeScale = 0;
+        StartCoroutine("YouDie");
+        playerDie = true;
+    }
+
+    public IEnumerator YouDie()
+    {
+        yield return new WaitForSecondsRealtime(1.0f);
+        canvasGame.SetActive(false);
+        canvasEnd.SetActive(true);
+    }
+
+    public void PauseGame()
+    {
+        if (playerDie == false)
+        {
+            pause = !pause;
+            if (pause)
+            {
+                textPause.SetActive(true);
+                Time.timeScale = 0;
+            }
+            if (!pause)
+            {
+                textPause.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }
     }
 }

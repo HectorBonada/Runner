@@ -7,6 +7,7 @@ public class ButtonsFunctions : MonoBehaviour
 {
     public GameObject managerScene;
     private LevelManager script;
+    public GameManager gameManager;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class ButtonsFunctions : MonoBehaviour
 
     public void TryAgain()
     {
-        script.LoadGamePlay();
+        gameManager.RestartGame();
     }
 
     public void MainGame()
