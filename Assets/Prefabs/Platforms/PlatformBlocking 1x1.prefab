@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4711532563864448}
   - component: {fileID: 114240547068326364}
   - component: {fileID: 50407414070297024}
+  - component: {fileID: 61365660913342362}
   m_Layer: 8
   m_Name: PlatformBlocking 1x1
   m_TagString: Untagged
@@ -37,7 +38,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4098198179458632}
   - component: {fileID: 212444762268646226}
-  - component: {fileID: 61220213241243682}
   m_Layer: 8
   m_Name: Cube1
   m_TagString: Untagged
@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1420374568307820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.637057, y: 0.2871323, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4098198179458632}
@@ -92,12 +92,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61220213241243682
+--- !u!61 &61365660913342362
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1547212923424016}
+  m_GameObject: {fileID: 1420374568307820}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
