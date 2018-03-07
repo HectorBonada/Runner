@@ -34,7 +34,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public GameObject textPause;
 
-
+    public AudioSource coinSound;
+    public AudioSource deathSound;
     // Use this for initialization
     void Start()
     {
@@ -104,6 +105,7 @@ public class PlayerBehaviour : MonoBehaviour
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
+            deathSound.Play();
             GameManager.PlayerDie();
         }
     }

@@ -8,9 +8,11 @@ public class Coin : MonoBehaviour {
 
     private ScoreManager scoreManager;
 
+    private AudioSource coinSound;
 	// Use this for initialization
 	void Start () {
         scoreManager = FindObjectOfType<ScoreManager>();
+        coinSound = GameObject.Find("CoinSound").GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -24,6 +26,13 @@ public class Coin : MonoBehaviour {
         {
             scoreManager.AddScore(scoreToGive);
             gameObject.SetActive(false);
+
+            if (coinSound.isPlaying)
+            {
+                coinSound.Stop();
+                coinSound.Play();
+            }
+            coinSound.Play();
         }
     }
 }
