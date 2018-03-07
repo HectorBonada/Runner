@@ -950,8 +950,8 @@ MonoBehaviour:
   speedMultiplier: 1.25
   speedIncreaseMilestone: 100
   speedIncreaseMilestoneStore: 0
-  jumpForce: 4
-  jumpTime: 0.5
+  jumpForce: 2
+  jumpTime: 0.35
   grounded: 0
   whatIsGround:
     serializedVersion: 2
@@ -1134,7 +1134,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: Score:0
 --- !u!222 &2054405057
 CanvasRenderer:
   m_ObjectHideFlags: 0
