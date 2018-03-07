@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public bool pause;
     public GameObject textPause;
 
+    public ParticleSystem dieEffect;
     // Use this for initialization
     void Start ()
     {
@@ -72,7 +73,8 @@ public class GameManager : MonoBehaviour {
     public void PlayerDie()
     {
         textDie.SetActive(true);
-        Time.timeScale = 0;
+        dieEffect.Play();
+        //Time.timeScale = 0;
         StartCoroutine("YouDie");
         playerDie = true;
     }
