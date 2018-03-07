@@ -238,7 +238,7 @@ MonoBehaviour:
   currentScene: 0
   nextScene: 0
   managerScene: 0
-  titleScene: 1
+  titleScene: 2
   sceneCountInBuildSettings: 0
   blackScreen: {fileID: 2050397186}
 --- !u!4 &1556800944

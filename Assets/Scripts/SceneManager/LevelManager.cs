@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public int currentScene;
     public int nextScene;
     public int managerScene = 0;
-    public int titleScene = 1;
+    public int titleScene;
     public int sceneCountInBuildSettings;
     [Header("Load parameters")]
     AsyncOperation loadAsync = null;
@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
 
         UpdateSceneState();
     }
+
     void UpdateSceneState()
     {
         sceneCountInBuildSettings = SceneManager.sceneCountInBuildSettings;
