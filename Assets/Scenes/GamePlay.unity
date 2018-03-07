@@ -228,7 +228,8 @@ Prefab:
       propertyPath: platDestructionPoint
       value: 
       objectReference: {fileID: 663865695}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114021245577437996, guid: 5ddcc63a3589881488bbaa1288387ea7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5ddcc63a3589881488bbaa1288387ea7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &663865695
@@ -258,6 +259,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1620305338}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &860239338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 860239340}
+  - component: {fileID: 860239339}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &860239339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860239338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6a43eb7a3a8f64e9408a664898fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformGenerator: {fileID: 1944430808}
+  player: {fileID: 1813276836}
+--- !u!4 &860239340
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860239338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893255322 stripped
 GameObject:
@@ -318,7 +361,7 @@ GameObject:
   - component: {fileID: 1153586849}
   m_Layer: 8
   m_Name: Catcher
-  m_TagString: Untagged
+  m_TagString: KillBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -604,7 +647,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1881024852}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -622,13 +666,17 @@ MonoBehaviour:
   moveSpeed: 1
   speedMultiplier: 1.25
   speedIncreaseMilestone: 100
+  speedIncreaseMilestoneStore: 0
   jumpForce: 4
   jumpTime: 0.5
   grounded: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  force: 1
+  groundCheck: {fileID: 1881024852}
+  groundCheckRadius: 0.02
+  force: 1.2
+  GameManager: {fileID: 860239339}
 --- !u!50 &1813276837
 Rigidbody2D:
   serializedVersion: 4
@@ -674,6 +722,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!1 &1881024851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1881024852}
+  m_Layer: 9
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881024852
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1881024851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.068, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1813276835}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1944430807
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,8 +9,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     public float speedIncreaseMilestone;
     private float speedMilestoneCount;
-
-
+    private float speedMilestoneCountStore;
+    private float moveSpeedStore;
+    public float speedIncreaseMilestoneStore;
     public float jumpForce;
 
     public float jumpTime;
@@ -20,10 +21,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     public bool grounded;
     public LayerMask whatIsGround;
+    public Transform groundCheck;
+    public float groundCheckRadius;
 
     public float force;
 
     private Collider2D col;
+
+    public GameManager GameManager;
 
     // Use this for initialization
     void Start()
@@ -33,31 +38,35 @@ public class PlayerBehaviour : MonoBehaviour
         rb.gravityScale = force;
         jumpTimeCounter = jumpTime;
         speedMilestoneCount = speedIncreaseMilestone;
+        moveSpeedStore = moveSpeed;
+        speedMilestoneCountStore = speedMilestoneCount;
+        speedIncreaseMilestoneStore = speedIncreaseMilestone;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Suelo.
-        grounded = Physics2D.IsTouchingLayers(col, whatIsGround);
-        force = 1f;
-        rb.gravityScale = force;
+        //grounded = Physics2D.IsTouchingLayers(col, whatIsGround);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+
         //Mecánica moverse
 
-        if(transform.position.x > speedMilestoneCount)
+        if(transform.position.x >= speedMilestoneCount)
         {
             speedMilestoneCount += speedIncreaseMilestone;
 
             speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
             moveSpeed = moveSpeed * speedMultiplier;
         }
+
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
 
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if(grounded)
             {
-               
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
         }
 
@@ -78,6 +87,17 @@ public class PlayerBehaviour : MonoBehaviour
         if (grounded)
         {
             jumpTimeCounter = jumpTime;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "KillBox")
+        {
+            GameManager.RestartGame();
+            moveSpeed = moveSpeedStore;
+            speedMilestoneCount = speedMilestoneCountStore;
+            speedIncreaseMilestone = speedIncreaseMilestoneStore;
         }
     }
 }
