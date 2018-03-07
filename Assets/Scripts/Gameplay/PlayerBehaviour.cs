@@ -34,6 +34,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public GameObject textPause;
 
+
     // Use this for initialization
     void Start()
     {
