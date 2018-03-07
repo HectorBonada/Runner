@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour {
 
     public Text scoreText;
+    public Text scoreTextEnd;
     public Text highScoreText;
+    public Text highScoreTextEnd;
 
     public float scoreCount;
     public float highScoreCount;
@@ -16,12 +18,14 @@ public class ScoreManager : MonoBehaviour {
     public bool scoreIncreasing;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 		if(PlayerPrefs.HasKey("HighScore"))
         {
             highScoreCount = PlayerPrefs.GetFloat("HighScore");
         }
-	}
+        scoreIncreasing = true;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -29,7 +33,6 @@ public class ScoreManager : MonoBehaviour {
         if (scoreIncreasing)
         {
             scoreCount += pointsPerSecond * Time.deltaTime;
-
         }
 
         if (scoreCount > highScoreCount)
@@ -39,7 +42,8 @@ public class ScoreManager : MonoBehaviour {
         }
 
         scoreText.text = "Score: " + Mathf.Round( scoreCount);
+        scoreTextEnd.text = "Score: " + Mathf.Round(scoreCount);
         highScoreText.text = "High Score: " + Mathf.Round(highScoreCount);
-
-	}
+        highScoreTextEnd.text = "High Score: " + Mathf.Round(highScoreCount);
+    }
 }

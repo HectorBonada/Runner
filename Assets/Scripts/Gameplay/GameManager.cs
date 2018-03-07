@@ -23,15 +23,17 @@ public class GameManager : MonoBehaviour {
     public GameObject textPause;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         platformStartPoint = platformGenerator.position;
         playerStartPoint = player.transform.position;
 
         theScore = FindObjectOfType<ScoreManager>();
-	}
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
     public void RestartGame()
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour {
         }
         platformGenerator.position = platformStartPoint;
         player.transform.position = playerStartPoint;
+        theScore.scoreCount = 0;
     }
     public IEnumerator RestartGameCo()
     {
@@ -63,7 +66,6 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSecondsRealtime(1f);
         playerDie = false;
         player.gameObject.SetActive(true);
-        theScore.scoreCount = 0;
         theScore.scoreIncreasing = true;
     }
 
