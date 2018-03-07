@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     public float moveSpeed;
+    public float speedMultiplier; //Aumentar velocidad respecto al tiempo.
+
+    public float speedIncreaseMilestone;
+    private float speedMilestoneCount;
+
+
     public float jumpForce;
 
     public float jumpTime;
@@ -18,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float force;
 
     private Collider2D col;
+
     // Use this for initialization
     void Start()
     {
@@ -25,6 +32,7 @@ public class PlayerBehaviour : MonoBehaviour
         col = GetComponent<Collider2D>();
         rb.gravityScale = force;
         jumpTimeCounter = jumpTime;
+        speedMilestoneCount = speedIncreaseMilestone;
     }
 
     // Update is called once per frame
@@ -35,6 +43,14 @@ public class PlayerBehaviour : MonoBehaviour
         force = 1f;
         rb.gravityScale = force;
         //Mecánica moverse
+
+        if(transform.position.x > speedMilestoneCount)
+        {
+            speedMilestoneCount += speedIncreaseMilestone;
+
+            speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
+            moveSpeed = moveSpeed * speedMultiplier;
+        }
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
 
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
