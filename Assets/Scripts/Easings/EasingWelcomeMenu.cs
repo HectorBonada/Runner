@@ -7,28 +7,28 @@ public class EasingWelcomeMenu : MonoBehaviour
 {
     public float currentTime;
     public float duration;
-    public Text welcome;
-    public float alpha;
+    public Vector2 iniPos;
+    public Vector2 finalPos;
 
     // Update is called once per frame
     public void Start()
     {
-        alpha = 0;
+        transform.localPosition = new Vector3(iniPos.x, iniPos.y, transform.localPosition.z);
     }
 
     void Update()
     {
         if (currentTime >= 0)
         {
-            welcome.color = new Vector4(255f, 255f, 255f, alpha);
+            Vector2 value = new Vector2(Easing.QuartEaseOut(currentTime, iniPos.x, finalPos.x - iniPos.x, duration), Easing.QuartEaseOut(currentTime, iniPos.y, finalPos.y - iniPos.y, duration));
+            transform.localPosition = new Vector3(value.x, value.y, transform.localPosition.z);
         }
 
         currentTime += Time.deltaTime;
-        alpha += Time.deltaTime / 6;
 
         if (currentTime >= duration)
         {
-            welcome.color = new Vector4(255f, 255f, 255f, alpha);
+            transform.localPosition = new Vector3(finalPos.x, finalPos.y, transform.localPosition.z);
         }
     }
 }
