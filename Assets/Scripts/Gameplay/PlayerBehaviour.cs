@@ -34,7 +34,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     public GameObject textPause;
 
-    public AudioSource coinSound;
     public AudioSource deathSound;
     // Use this for initialization
     void Start()
