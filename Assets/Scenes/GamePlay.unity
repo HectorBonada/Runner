@@ -244,7 +244,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299420240
 GameObject:
@@ -470,7 +470,7 @@ Transform:
   m_Children:
   - {fileID: 1718681205}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &621752898
 GameObject:
@@ -4600,7 +4600,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4759,7 +4759,7 @@ RectTransform:
   - {fileID: 825906068}
   - {fileID: 1973248532}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4977,7 +4977,7 @@ Transform:
   - {fileID: 663865696}
   - {fileID: 1153586850}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1620305339
 MonoBehaviour:
@@ -5093,7 +5093,7 @@ Transform:
   - {fileID: 138690209}
   - {fileID: 901907505}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1718681203
 GameObject:
@@ -5175,7 +5175,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4468595901373834, guid: 090a6fdb6cce15540852ffe3f0228f8c, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114535442575817244, guid: 090a6fdb6cce15540852ffe3f0228f8c, type: 2}
@@ -5249,6 +5249,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1775736905}
+--- !u!1 &1776323339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1776323341}
+  - component: {fileID: 1776323340}
+  m_Layer: 0
+  m_Name: HazardPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1776323340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1776323339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f192669e515b45a4cafb01ea2b877564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1581453480197056, guid: 0c0688012af2df841b8f88e5a6fed999,
+    type: 2}
+  pooledAmount: 5
+--- !u!4 &1776323341
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1776323339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.37607843, y: 0.18633108, z: -0.789902}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1812329512
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,7 +5384,7 @@ RectTransform:
   - {fileID: 2015420237}
   - {fileID: 673076497}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5424,7 +5467,7 @@ Transform:
   - {fileID: 1881024852}
   - {fileID: 633918830}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1813276836
 MonoBehaviour:
@@ -5453,7 +5496,6 @@ MonoBehaviour:
   force: 1.2
   GameManager: {fileID: 860239339}
   textPause: {fileID: 1973248531}
-  coinSound: {fileID: 621752900}
   deathSound: {fileID: 299420242}
 --- !u!50 &1813276837
 Rigidbody2D:
@@ -5556,7 +5598,7 @@ Transform:
   m_Children:
   - {fileID: 2134079551}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1944430809
 MonoBehaviour:
@@ -5581,6 +5623,8 @@ MonoBehaviour:
   maxHeightPoint: {fileID: 2134079551}
   maxHeightChange: 0.3
   randomCoinThreshold: 1
+  hazardGenerator: {fileID: 1776323340}
+  randomHazardThreshold: 2
 --- !u!1 &1973248531
 GameObject:
   m_ObjectHideFlags: 0

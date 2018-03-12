@@ -29,7 +29,8 @@ public class PlatformGenerator : MonoBehaviour {
     private CoinGenerator coinGenerator;
     public float randomCoinThreshold;
 
-
+    public ObjectPooling hazardGenerator;
+    public float randomHazardThreshold;
     // Use this for initialization
     void Start ()
     {
@@ -81,6 +82,18 @@ public class PlatformGenerator : MonoBehaviour {
             if(Random.Range(0f, 10f) < randomCoinThreshold)
             {
                 coinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z));
+            }
+
+            if (Random.Range(0f, 10f) < randomHazardThreshold)
+            {
+                GameObject newHazard = hazardGenerator.GetPooledObject();
+
+                float hazardXPosition = Random.Range(-platformWidth/ 2f , platformWidth / 2f);
+                Vector3 hazardSposition = new Vector3(hazardXPosition, 0.5f, 0f);
+
+                newHazard.transform.position = transform.position + hazardSposition;
+                newHazard.transform.rotation = transform.rotation;
+                newHazard.SetActive(true);
             }
 
             transform.position = new Vector3(transform.position.x + (platformsWidth[platformOption] / 2), transform.position.y, transform.position.z);
