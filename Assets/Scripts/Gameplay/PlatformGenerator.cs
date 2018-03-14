@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,17 +30,18 @@ public class PlatformGenerator : MonoBehaviour {
     private CoinGenerator coinGenerator;
     public float randomCoinThreshold;
 
-    public ObjectPooling hazardGenerator;
-    public float randomHazardThreshold;
+   // public ObjectPooling hazardGenerator;
+   //public float randomHazardThreshold;
+
     // Use this for initialization
     void Start ()
     {
-        platformWidth = platform.GetComponent<BoxCollider2D>().size.x;
+        platformWidth = platform.GetComponent<CompositeCollider2D>().bounds.size.x;
 
         platformsWidth = new float[theObjectPools.Length];
         for (int i = 0; i < theObjectPools.Length; i++) 
         {
-            platformsWidth[i] = theObjectPools[i].pooledObject.GetComponent<BoxCollider2D>().size.x;
+            platformsWidth[i] = theObjectPools[i].pooledObject.GetComponent<CompositeCollider2D>().bounds.size.x;
         }
 
         minHeight = transform.position.y;
@@ -84,7 +86,7 @@ public class PlatformGenerator : MonoBehaviour {
                 coinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z));
             }
 
-            if (Random.Range(0f, 10f) < randomHazardThreshold)
+            /*if (Random.Range(0f, 10f) < randomHazardThreshold)
             {
                 GameObject newHazard = hazardGenerator.GetPooledObject();
 
@@ -94,7 +96,7 @@ public class PlatformGenerator : MonoBehaviour {
                 newHazard.transform.position = transform.position + hazardSposition;
                 newHazard.transform.rotation = transform.rotation;
                 newHazard.SetActive(true);
-            }
+            }*/
 
             transform.position = new Vector3(transform.position.x + (platformsWidth[platformOption] / 2), transform.position.y, transform.position.z);
         }

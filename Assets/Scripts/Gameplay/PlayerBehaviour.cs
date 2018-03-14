@@ -35,6 +35,8 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject textPause;
 
     public AudioSource deathSound;
+
+    private bool isDead = false;
     // Use this for initialization
     void Start()
     {
@@ -51,6 +53,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isDead) return;
         //Suelo.
         //grounded = Physics2D.IsTouchingLayers(col, whatIsGround);
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
@@ -101,11 +104,15 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "KillBox")
         {
+            isDead = true; 
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
             deathSound.Play();
             GameManager.PlayerDie();
+
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * 2, ForceMode2D.Impulse);
         }
     }
 }
