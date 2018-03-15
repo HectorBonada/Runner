@@ -36,7 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public AudioSource deathSound;
 
-    private bool isDead = false;
+    public bool isDead = false;
     // Use this for initialization
     void Start()
     {
@@ -104,7 +104,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "KillBox")
         {
-            isDead = true; 
+            if (isDead == true) return;
+            isDead = true;
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilestoneStore;

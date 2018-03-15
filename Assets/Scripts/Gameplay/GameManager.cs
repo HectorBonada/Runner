@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour {
     {
         textDie.SetActive(true);
         dieEffect.Play();
-        //Time.timeScale = 0;
         StartCoroutine("YouDie");
         playerDie = true;
     }
@@ -84,6 +83,8 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSecondsRealtime(1.0f);
         canvasGame.SetActive(false);
         canvasEnd.SetActive(true);
+        Time.timeScale = 0;
+        player.isDead = false;
     }
 
     public void PauseGame()
@@ -95,11 +96,13 @@ public class GameManager : MonoBehaviour {
             {
                 textPause.SetActive(true);
                 Time.timeScale = 0;
+                Debug.Log("PAUSE");
             }
             if (!pause)
             {
                 textPause.SetActive(false);
                 Time.timeScale = 1;
+                Debug.Log("NO PAUSE");
             }
         }
     }
