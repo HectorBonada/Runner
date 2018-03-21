@@ -14,8 +14,6 @@ public class ObjectPooling : MonoBehaviour {
 	void Start () {
         pooledObjects = new List<GameObject>();
 
-        if(pooledObject == null) return;
-
         for(int i = 0; i < pooledAmount; i++)
         {
             GameObject obj = (GameObject) Instantiate(pooledObject);
