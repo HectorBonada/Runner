@@ -88,6 +88,8 @@ GameObject:
   - component: {fileID: 4045316171260514}
   - component: {fileID: 114789237707554728}
   - component: {fileID: 61851333268564550}
+  - component: {fileID: 114717084371458482}
+  - component: {fileID: 50703319533431136}
   m_Layer: 8
   m_Name: PlatformBlockingFall 2x2
   m_TagString: Untagged
@@ -342,7 +344,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065291815565954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.085785, y: -1.7983733, z: 0}
+  m_LocalPosition: {x: 4.661743, y: -1.7757158, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4297990723874994}
@@ -551,6 +553,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!50 &50703319533431136
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201098713307184}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &60706487252271362
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -721,7 +743,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.067943454, y: -0.00073847175}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
@@ -781,88 +803,88 @@ CompositeCollider2D:
     m_ColliderPaths:
     - - X: 16945142
         Y: 1048500
-      - X: 16920460
+      - X: 16920462
         Y: 154922
-      - X: 18060520
+      - X: 18060522
         Y: 191123
-      - X: 19635132
+      - X: 19635134
         Y: 909516
   - m_Collider: {fileID: 61734213251317522}
     m_ColliderPaths:
-    - - X: 13147051
-        Y: -4029852
-      - X: 11922119
-        Y: -4029852
-      - X: 11922119
-        Y: -4663693
-      - X: 13147051
-        Y: -4663693
+    - - X: 13147054
+        Y: -4029853
+      - X: 11922121
+        Y: -4029853
+      - X: 11922121
+        Y: -4663695
+      - X: 13147054
+        Y: -4663695
   - m_Collider: {fileID: 61797531274967278}
     m_ColliderPaths:
     - - X: 8608656
-        Y: 2491711
+        Y: 2491712
       - X: 7383723
-        Y: 2491711
+        Y: 2491712
       - X: 7383723
-        Y: 1857869
+        Y: 1857871
       - X: 8608656
-        Y: 1857869
+        Y: 1857871
   - m_Collider: {fileID: 60749922297576178}
     m_ColliderPaths:
-    - - X: 6953037
-        Y: -2002524
-      - X: 6928355
-        Y: -2896102
-      - X: 8068416
-        Y: -2859901
-      - X: 9643028
-        Y: -2141507
+    - - X: 6953039
+        Y: -2002523
+      - X: 6928358
+        Y: -2896101
+      - X: 8068418
+        Y: -2859900
+      - X: 9643030
+        Y: -2141506
   - m_Collider: {fileID: 60889846920991158}
     m_ColliderPaths:
     - - X: 10919366
-        Y: 4023250
+        Y: 4023249
       - X: 10894685
-        Y: 3129671
+        Y: 3129670
       - X: 12034745
-        Y: 3165873
+        Y: 3165872
       - X: 13609357
-        Y: 3884266
+        Y: 3884265
   - m_Collider: {fileID: 61888980017803748}
     m_ColliderPaths:
-    - - X: 5047872
+    - - X: 5047869
         Y: -61054
-      - X: 920474
+      - X: 920472
         Y: -61054
-      - X: 920474
+      - X: 920472
         Y: -1053161
-      - X: 5047872
+      - X: 5047869
         Y: -1053161
   m_CompositePaths:
     m_Paths:
-    - - {x: 1.2034745, y: 0.3165873}
-      - {x: 1.3609357, y: 0.3884266}
-      - {x: 1.0919366, y: 0.402325}
-      - {x: 1.0894685, y: 0.3129671}
-    - - {x: 0.8608656, y: 0.24917111}
-      - {x: 0.7383723, y: 0.24917111}
-      - {x: 0.7383723, y: 0.1857869}
-      - {x: 0.8608656, y: 0.1857869}
-    - - {x: 1.806052, y: 0.0191123}
-      - {x: 1.9635133, y: 0.0909516}
+    - - {x: 1.2034745, y: 0.3165872}
+      - {x: 1.3609357, y: 0.3884265}
+      - {x: 1.0919366, y: 0.40232491}
+      - {x: 1.0894685, y: 0.312967}
+    - - {x: 0.8608656, y: 0.2491712}
+      - {x: 0.7383723, y: 0.2491712}
+      - {x: 0.7383723, y: 0.1857871}
+      - {x: 0.8608656, y: 0.1857871}
+    - - {x: 1.8060522, y: 0.0191123}
+      - {x: 1.9635134, y: 0.0909516}
       - {x: 1.6945143, y: 0.10485}
-      - {x: 1.692046, y: 0.0154922}
-    - - {x: 0.5047872, y: -0.0061054}
-      - {x: 0.0920474, y: -0.0061054}
-      - {x: 0.0920474, y: -0.1053161}
-      - {x: 0.5047872, y: -0.1053161}
-    - - {x: 0.8068416, y: -0.2859901}
-      - {x: 0.96430284, y: -0.2141507}
-      - {x: 0.6953037, y: -0.2002524}
-      - {x: 0.6928355, y: -0.2896102}
-    - - {x: 1.3147051, y: -0.40298522}
-      - {x: 1.1922119, y: -0.40298522}
-      - {x: 1.1922119, y: -0.4663693}
-      - {x: 1.3147051, y: -0.4663693}
+      - {x: 1.6920462, y: 0.0154922}
+    - - {x: 0.5047869, y: -0.0061054}
+      - {x: 0.0920472, y: -0.0061054}
+      - {x: 0.0920472, y: -0.1053161}
+      - {x: 0.5047869, y: -0.1053161}
+    - - {x: 0.8068418, y: -0.28599}
+      - {x: 0.964303, y: -0.21415061}
+      - {x: 0.6953039, y: -0.20025231}
+      - {x: 0.6928358, y: -0.28961012}
+    - - {x: 1.3147054, y: -0.4029853}
+      - {x: 1.1922121, y: -0.4029853}
+      - {x: 1.1922121, y: -0.4663695}
+      - {x: 1.3147054, y: -0.4663695}
   m_VertexDistance: 0.0005
 --- !u!114 &114071920620081544
 MonoBehaviour:
@@ -900,6 +922,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platDestructionPoint: {fileID: 0}
+--- !u!114 &114717084371458482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201098713307184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75649def90b4ab34aa2ff0cf39966b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 50703319533431136}
 --- !u!114 &114750099032984468
 MonoBehaviour:
   m_ObjectHideFlags: 1

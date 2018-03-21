@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 4661948496609352}
   - component: {fileID: 114295577844181664}
   - component: {fileID: 61542096877689940}
+  - component: {fileID: 50409032465260454}
+  - component: {fileID: 114877825213608756}
   m_Layer: 8
   m_Name: PlatformBlockingFall 1x1 (1)
   m_TagString: Untagged
@@ -87,6 +89,8 @@ GameObject:
   - component: {fileID: 4818765167854350}
   - component: {fileID: 114180508193081620}
   - component: {fileID: 61389548972770184}
+  - component: {fileID: 50177982360916790}
+  - component: {fileID: 114410380375685446}
   m_Layer: 8
   m_Name: PlatformBlockingFall 1x1
   m_TagString: Untagged
@@ -439,7 +443,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326265078676748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1117377, y: -1.3547549, z: 0}
+  m_LocalPosition: {x: 4.8424344, y: -1.5950246, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4021558445112650}
@@ -582,6 +586,46 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!50 &50177982360916790
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1272251188404202}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &50409032465260454
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115906296978242}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &60288308300752478
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -705,7 +749,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.00034952164, y: -0.00073847175}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
@@ -730,7 +774,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.00034952164, y: -0.00073847175}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
@@ -839,13 +883,13 @@ CompositeCollider2D:
   - m_Collider: {fileID: 60367702456801520}
     m_ColliderPaths:
     - - X: 12893939
-        Y: -2039437
+        Y: -2039436
       - X: 12869258
-        Y: -2933015
+        Y: -2933014
       - X: 14009318
-        Y: -2896814
+        Y: -2896813
       - X: 15583930
-        Y: -2178421
+        Y: -2178419
   - m_Collider: {fileID: 60446298891533958}
     m_ColliderPaths:
     - - X: 16887994
@@ -883,25 +927,25 @@ CompositeCollider2D:
       - X: 8968294
         Y: 51096
       - X: 8968294
-        Y: -582744
+        Y: -582745
       - X: 10193226
-        Y: -582744
+        Y: -582745
   - m_Collider: {fileID: 61935863708536226}
     m_ColliderPaths:
-    - - X: 7179452
-        Y: 2090334
-      - X: 5954519
-        Y: 2090334
-      - X: 5954519
-        Y: 1456493
-      - X: 7179452
-        Y: 1456493
+    - - X: 7179453
+        Y: 2090335
+      - X: 5954520
+        Y: 2090335
+      - X: 5954520
+        Y: 1456494
+      - X: 7179453
+        Y: 1456494
   m_CompositePaths:
     m_Paths:
-    - - {x: 0.7179452, y: 0.2090334}
-      - {x: 0.5954519, y: 0.2090334}
-      - {x: 0.5954519, y: 0.1456493}
-      - {x: 0.7179452, y: 0.1456493}
+    - - {x: 0.71794534, y: 0.2090335}
+      - {x: 0.595452, y: 0.2090335}
+      - {x: 0.595452, y: 0.1456494}
+      - {x: 0.71794534, y: 0.1456494}
     - - {x: 1.3024869, y: 0.120974705}
       - {x: 1.4599481, y: 0.1928141}
       - {x: 1.190949, y: 0.20671241}
@@ -912,16 +956,16 @@ CompositeCollider2D:
       - {x: 1.6863313, y: -0.0823479}
     - - {x: 1.0193226, y: 0.0051096003}
       - {x: 0.8968294, y: 0.0051096003}
-      - {x: 0.8968294, y: -0.0582744}
-      - {x: 1.0193226, y: -0.0582744}
+      - {x: 0.8968294, y: -0.0582745}
+      - {x: 1.0193226, y: -0.0582745}
     - - {x: 0.3067863, y: -0.0843533}
       - {x: 0.4642474, y: -0.0125139}
       - {x: 0.1952483, y: 0.0013843001}
       - {x: 0.1927802, y: -0.0879734}
-    - - {x: 1.4009318, y: -0.2896814}
-      - {x: 1.558393, y: -0.2178421}
-      - {x: 1.2893939, y: -0.2039437}
-      - {x: 1.2869258, y: -0.2933015}
+    - - {x: 1.4009318, y: -0.28968132}
+      - {x: 1.558393, y: -0.21784191}
+      - {x: 1.2893939, y: -0.2039436}
+      - {x: 1.2869258, y: -0.2933014}
   m_VertexDistance: 0.0005
 --- !u!114 &114140528174037492
 MonoBehaviour:
@@ -983,6 +1027,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platDestructionPoint: {fileID: 0}
+--- !u!114 &114410380375685446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1272251188404202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75649def90b4ab34aa2ff0cf39966b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 50177982360916790}
 --- !u!114 &114422572810882650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1019,6 +1075,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platDestructionPoint: {fileID: 0}
+--- !u!114 &114877825213608756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115906296978242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75649def90b4ab34aa2ff0cf39966b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 50409032465260454}
 --- !u!114 &114892058274730076
 MonoBehaviour:
   m_ObjectHideFlags: 1
