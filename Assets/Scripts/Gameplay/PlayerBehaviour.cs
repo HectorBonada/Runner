@@ -36,9 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public AudioSource deathSound;
 
-
     public bool isDead = false;
-
     // Use this for initialization
     void Start()
     {
@@ -55,13 +53,14 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isDead) return;
         //Suelo.
         //grounded = Physics2D.IsTouchingLayers(col, whatIsGround);
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
         //Mecánica moverse
 
-        if (transform.position.x >= speedMilestoneCount)
+        if(transform.position.x >= speedMilestoneCount)
         {
             speedMilestoneCount += speedIncreaseMilestone;
 
@@ -71,49 +70,50 @@ public class PlayerBehaviour : MonoBehaviour
 
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            if (grounded)
+            if(grounded)
             {
-                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
         }
 
-        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+        if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         {
-            if (jumpTimeCounter > 0)
+            if(jumpTimeCounter > 0)
             {
-                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                    jumpTimeCounter -= Time.deltaTime;
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumpTimeCounter -= Time.deltaTime;
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
-             jumpTimeCounter = 0;
+            jumpTimeCounter = 0;
         }
 
-        if (grounded)
+        if(grounded)
         {
             jumpTimeCounter = jumpTime;
         }
 
-        if (Input.GetKeyUp(KeyCode.P)) GameManager.PauseGame();
+        if(Input.GetKeyUp(KeyCode.P)) GameManager.PauseGame();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "KillBox")
         {
-
-            if (isDead == true) return;
+            if(isDead == true) return;
             isDead = true;
-
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
             deathSound.Play();
             GameManager.PlayerDie();
+
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * 2, ForceMode2D.Impulse);
         }
     }
 }
