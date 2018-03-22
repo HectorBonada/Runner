@@ -5,9 +5,11 @@ using UnityEngine;
 public class Hazard : MonoBehaviour {
 
 	public PlayerBehaviour player;
+	public GameManager manager;
 	// Use this for initialization
 	void Start () {
 		player = FindObjectOfType<PlayerBehaviour> ();
+		manager = FindObjectOfType<GameManager> ();
 	}
 	
 	private void OnTriggerEnter2D(Collider2D other)
@@ -15,7 +17,8 @@ public class Hazard : MonoBehaviour {
 		if (other.gameObject.tag == "Player")
 		{
 			Debug.Log ("PlayerDebeMorir");
-			player.isDead = true;
+			//player.isDead = true;
+			manager.PlayerDie();
 		}
 
 	}

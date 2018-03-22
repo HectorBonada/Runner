@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour {
 
     public IEnumerator YouDie()
     {
+		player.isDead = true;
         yield return new WaitForSecondsRealtime(1.0f);
         canvasGame.SetActive(false);
         canvasEnd.SetActive(true);
