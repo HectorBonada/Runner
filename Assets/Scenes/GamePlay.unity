@@ -6253,6 +6253,7 @@ GameObject:
   - component: {fileID: 1813276838}
   - component: {fileID: 1813276837}
   - component: {fileID: 1813276836}
+  - component: {fileID: 1813276839}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -6334,7 +6335,7 @@ MonoBehaviour:
   speedMultiplier: 1.25
   speedIncreaseMilestone: 100
   speedIncreaseMilestoneStore: 0
-  jumpForce: 5
+  jumpForce: 2
   pause: 0
   jumpTime: 0.35
   grounded: 0
@@ -6394,6 +6395,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13, y: 0.13}
   m_EdgeRadius: 0
+--- !u!95 &1813276839
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1813276833}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a5996cb2eeca2246ab0e2886a6e3dbd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1881024851
 GameObject:
   m_ObjectHideFlags: 0

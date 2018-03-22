@@ -76,34 +76,26 @@ public class PlayerBehaviour : MonoBehaviour
             if (grounded)
             {
                 Debug.Log("Start jump");
-                rb.velocity = new Vector2(rb.velocity.x, 0);
-                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);                
-                //jumpTimeCounter = jumpTime;
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);        
+                jumpTimeCounter = jumpTime;
             }
         }
-        /*else if(Input.GetButton("Jump"))
+        else if(Input.GetButton("Jump"))
         {
             if(!grounded && jumpTimeCounter > 0)
             {
                 Debug.Log("Jumping");
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);                
-            }
-            jumpTimeCounter -= Time.deltaTime;
-        }*/
-       
-      /*  if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
-        {
-            if(jumpTimeCounter > 0)
-            {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
             }
+       
         }
+       
 
         if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
             jumpTimeCounter = 0;
-        }*/
+        }
 
         //MOBILE INPUTS
        if (Input.touchCount > 0)
@@ -118,7 +110,20 @@ public class PlayerBehaviour : MonoBehaviour
                     if (grounded)
                     {
                         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                        isTouching = true;
+                        jumpTimeCounter = jumpTime;
+                    }
+                    isTouching = true;
+                    break;
+
+                case TouchPhase.Stationary:
+                    if (isTouching == true)
+                    {
+                        Debug.Log("Entra?");
+                        if (jumpTimeCounter > 0)
+                        {
+                            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                            jumpTimeCounter -= Time.deltaTime;
+                        }
                     }
                     break;
 
@@ -129,14 +134,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
-        if (isTouching == true)
-        {
-            if (jumpTimeCounter > 0)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jumpTimeCounter -= Time.deltaTime;
-            }
-        }
+        
 
         if(Input.GetKeyUp(KeyCode.P)) GameManager.PauseGame();
     }
