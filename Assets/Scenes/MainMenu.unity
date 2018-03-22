@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1083638476
 AudioSource:
   m_ObjectHideFlags: 0
@@ -675,7 +675,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0249f75f5ca64d7408882c832d71e584, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1.2
   Loop: 1
   Mute: 0
@@ -811,6 +811,9 @@ MonoBehaviour:
   duration: 2
   iniPos: {x: 0, y: -600}
   finalPos: {x: 0, y: 0}
+  audioMusic: {fileID: 1083638475}
+  music: {fileID: 1083638476}
+  volumeMusic: 0
 --- !u!1 &1369592822
 GameObject:
   m_ObjectHideFlags: 0

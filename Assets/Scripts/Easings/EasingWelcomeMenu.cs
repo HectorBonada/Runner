@@ -9,6 +9,9 @@ public class EasingWelcomeMenu : MonoBehaviour
     public float duration;
     public Vector2 iniPos;
     public Vector2 finalPos;
+    public GameObject audioMusic;
+    public AudioSource music;
+    public float volumeMusic = 0.0f;
 
     // Update is called once per frame
     public void Start()
@@ -18,6 +21,8 @@ public class EasingWelcomeMenu : MonoBehaviour
 
     void Update()
     {
+        volumeMusic += 0.01f;
+        music.volume = volumeMusic;
         if (currentTime >= 0)
         {
             Vector2 value = new Vector2(Easing.QuartEaseOut(currentTime, iniPos.x, finalPos.x - iniPos.x, duration), Easing.QuartEaseOut(currentTime, iniPos.y, finalPos.y - iniPos.y, duration));
