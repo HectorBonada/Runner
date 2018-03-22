@@ -38,6 +38,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public bool isDead = false;
     public bool isTouching;
+
+    public Animator anim;
     // Use this for initialization
     void Start()
     {
@@ -49,6 +51,7 @@ public class PlayerBehaviour : MonoBehaviour
         moveSpeedStore = moveSpeed;
         speedMilestoneCountStore = speedMilestoneCount;
         speedIncreaseMilestoneStore = speedIncreaseMilestone;
+        anim = FindObjectOfType<Animator>();
     }
 
     // Update is called once per frame
@@ -58,7 +61,7 @@ public class PlayerBehaviour : MonoBehaviour
         //Suelo.
         //grounded = Physics2D.IsTouchingLayers(col, whatIsGround);
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
+        anim.SetBool("isGrounded", true);
         //Mecánica moverse
 
         if(transform.position.x >= speedMilestoneCount)
@@ -76,8 +79,10 @@ public class PlayerBehaviour : MonoBehaviour
             if (grounded)
             {
                 Debug.Log("Start jump");
+                anim.SetTrigger("jump");
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);        
                 jumpTimeCounter = jumpTime;
+                anim.SetBool("isGrounded", false);
             }
         }
         else if(Input.GetButton("Jump"))
@@ -87,6 +92,7 @@ public class PlayerBehaviour : MonoBehaviour
                 Debug.Log("Jumping");
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
+                anim.SetBool("isGrounded", false);
             }
        
         }
