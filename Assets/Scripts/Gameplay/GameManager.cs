@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour {
         platformGenerator.position = platformStartPoint;
         player.transform.position = playerStartPoint;
         theScore.scoreCount = 0;
+        player.isDead = false;
     }
     public IEnumerator RestartGameCo()
     {
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour {
         canvasGame.SetActive(false);
         canvasEnd.SetActive(true);
         Time.timeScale = 0;
-        player.isDead = false;
+       // player.isDead = false;
     }
 
     public void PauseGame()

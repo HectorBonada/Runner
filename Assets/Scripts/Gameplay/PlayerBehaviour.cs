@@ -37,6 +37,7 @@ public class PlayerBehaviour : MonoBehaviour
     public AudioSource deathSound;
 
     public bool isDead = false;
+    public bool isTouching;
     // Use this for initialization
     void Start()
     {
@@ -69,16 +70,28 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        
+        if(Input.GetButtonDown("Jump"))
         {
-            if(grounded)
+            if (grounded)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                Debug.Log("Start jump");
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);                
+                //jumpTimeCounter = jumpTime;
             }
         }
-
-        if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+        /*else if(Input.GetButton("Jump"))
+        {
+            if(!grounded && jumpTimeCounter > 0)
+            {
+                Debug.Log("Jumping");
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);                
+            }
+            jumpTimeCounter -= Time.deltaTime;
+        }*/
+       
+      /*  if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         {
             if(jumpTimeCounter > 0)
             {
@@ -90,11 +103,39 @@ public class PlayerBehaviour : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
             jumpTimeCounter = 0;
+        }*/
+
+        //MOBILE INPUTS
+       if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            switch (touch.phase)
+            {
+                //When a touch has first been detected
+                case TouchPhase.Began:
+                   
+                    if (grounded)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                        isTouching = true;
+                    }
+                    break;
+
+                case TouchPhase.Ended:
+                    isTouching = false;
+                    jumpTimeCounter = 0;
+                    break;
+            }
         }
 
-        if(grounded)
+        if (isTouching == true)
         {
-            jumpTimeCounter = jumpTime;
+            if (jumpTimeCounter > 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumpTimeCounter -= Time.deltaTime;
+            }
         }
 
         if(Input.GetKeyUp(KeyCode.P)) GameManager.PauseGame();
@@ -106,6 +147,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if(isDead == true) return;
             isDead = true;
+            isTouching = false;
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilestoneStore;

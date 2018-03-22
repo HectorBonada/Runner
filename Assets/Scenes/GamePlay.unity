@@ -6330,11 +6330,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688ff90c248d04b4c991725eb85d8b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.25
   speedMultiplier: 1.25
   speedIncreaseMilestone: 100
   speedIncreaseMilestoneStore: 0
-  jumpForce: 2
+  jumpForce: 5
   pause: 0
   jumpTime: 0.35
   grounded: 0
@@ -6348,6 +6348,7 @@ MonoBehaviour:
   textPause: {fileID: 1973248531}
   deathSound: {fileID: 299420242}
   isDead: 0
+  isTouching: 0
 --- !u!50 &1813276837
 Rigidbody2D:
   serializedVersion: 4
