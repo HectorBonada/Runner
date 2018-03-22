@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 212595106315624000}
   - component: {fileID: 114340495458907750}
   - component: {fileID: 61815162831379034}
+  - component: {fileID: 114644965466009274}
   m_Layer: 10
   m_Name: hazard
   m_TagString: KillBox
@@ -175,6 +176,7 @@ GameObject:
   - component: {fileID: 212117327838779340}
   - component: {fileID: 114231461204215542}
   - component: {fileID: 61186901729993920}
+  - component: {fileID: 114069869101759746}
   m_Layer: 10
   m_Name: hazard (1)
   m_TagString: KillBox
@@ -377,7 +379,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1003264554617710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3796055, y: -1.8037602, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4007136276064034}
@@ -943,6 +945,18 @@ CompositeCollider2D:
       - {x: 1.0754275, y: -0.4915617}
       - {x: 1.5035863, y: -0.4915617}
   m_VertexDistance: 0.0005
+--- !u!114 &114069869101759746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466368986597676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c045b2740be414aaf6369a045fffe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &114231461204215542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1003,6 +1017,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platDestructionPoint: {fileID: 0}
+--- !u!114 &114644965466009274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350768181429218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c045b2740be414aaf6369a045fffe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &114650054984312046
 MonoBehaviour:
   m_ObjectHideFlags: 1

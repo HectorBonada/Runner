@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 212713940685641798}
   - component: {fileID: 114431143993400234}
   - component: {fileID: 61822911813602150}
+  - component: {fileID: 114537594750296320}
   m_Layer: 10
   m_Name: hazard
   m_TagString: KillBox
@@ -223,6 +224,7 @@ GameObject:
   - component: {fileID: 212071411929941004}
   - component: {fileID: 114927522477052306}
   - component: {fileID: 61099578532764638}
+  - component: {fileID: 114833208591633842}
   m_Layer: 10
   m_Name: hazard (1)
   m_TagString: KillBox
@@ -251,7 +253,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1490877332097688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1101284, y: -1.8316481, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4193488539157416}
@@ -735,6 +737,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platDestructionPoint: {fileID: 0}
+--- !u!114 &114537594750296320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244596383641544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c045b2740be414aaf6369a045fffe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &114582250084253504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -759,6 +773,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platDestructionPoint: {fileID: 0}
+--- !u!114 &114833208591633842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1946879823431674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c045b2740be414aaf6369a045fffe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &114927522477052306
 MonoBehaviour:
   m_ObjectHideFlags: 1
