@@ -79,10 +79,10 @@ public class PlayerBehaviour : MonoBehaviour
             if (grounded)
             {
                 Debug.Log("Start jump");
-                anim.SetTrigger("jump");
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);        
                 jumpTimeCounter = jumpTime;
                 anim.SetBool("isGrounded", false);
+				anim.SetBool ("falling", false);
             }
         }
         else if(Input.GetButton("Jump"))
@@ -93,6 +93,7 @@ public class PlayerBehaviour : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
                 anim.SetBool("isGrounded", false);
+				anim.SetBool ("falling", false);
             }
        
         }
